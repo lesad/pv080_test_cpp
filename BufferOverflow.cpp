@@ -115,6 +115,7 @@ void demoDataTypeOverflow(int totalItemsCount, some_structure* pItem, int itemPo
 	}
 	else {
 		printf("Out of bound assignment");
+		free(data_copy);
 		return;
 	}
 	free(data_copy);
@@ -144,7 +145,7 @@ int main() {
 	demoAdjacentMemoryOverflow("admin", "I don't know the password");
 	demoAdjacentMemoryOverflow("adminxxxx", "I still don't know the password");
 	demoAdjacentMemoryOverflow("admin", "very secret password nbu123");
-	/**/
+	*/
 	//
 	// And more on buffer overflow - run different function or user code!
 	// Eclipse, Debug - work
@@ -161,7 +162,7 @@ int main() {
 	memset(&data, 1, sizeof(some_structure));
 	demoDataTypeOverflow(10, &data, 5);			// Correct operation
 	demoDataTypeOverflow(1073742, &data, 5);	// 1073742 * 4000 => only 704 B allocated
-	/**/
+	*/
 
 	return 0;
 }
